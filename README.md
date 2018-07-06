@@ -169,6 +169,10 @@ Spring Boot自带Tomcat容器，项目打成jar包后直接执行java -jar xxx.j
 ![](/assets/1.png)
 dist文件夹是前端vue页面打包和静态资源的根目录，与nginx的可执行程序在同一目录下，所有的前端页面和静态资源文件都放在dist目录下，excel文件夹下存放的事是web端导入导出文件模板，logo文件夹下存放的是web端图片文件夹,static文件夹存放的是web端打包的静态资源文件，wx文件夹下存放的是微信前端页面资源文件；为了确保客户之前存放的浏览器书签能正常访问，web端的编译打包好的首页index.html文件存放在zc文件夹下。
 ![](/assets/2.png)
+![](/assets/3.png)![](/assets/4.png)
+我们可以将其与之前Tomcat目录下的部署存放方式做一下对比：
+
+
 
 五、故障回退预案
 
