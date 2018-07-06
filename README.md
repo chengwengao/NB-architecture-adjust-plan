@@ -163,39 +163,12 @@ Spring Boot自带Tomcat容器，项目打成jar包后直接执行java -jar xxx.j
 
 （1）nginx核心配置
 
- server {
-
- listen 80; \#监听80端口
-
- server\_name localhost;
-
- charset utf-8;
-
- location \/ {
-
- root dist; \#项目静态文件根目录
-
- index index.html index.htm; \#跳转首页
-
- }
-
- \# redirect server error pages to the static page \/50x.html
-
- \#
-
- error\_page 500 502 503 504 \/50x.html;
-
- location = \/50x.html {
-
- root html;
-
- }
-
- }
+![](/assets/5.png)
 
 （2）配置说明：
-
-dist文件夹是前端vue页面打包和静态资源的根目录，
+![](/assets/1.png)
+dist文件夹是前端vue页面打包和静态资源的根目录，与nginx的可执行程序在同一目录下，所有的前端页面和静态资源文件都放在dist目录下，excel文件夹下存放的事是web端导入导出文件模板，logo文件夹下存放的是web端图片文件夹,static文件夹存放的是web端打包的静态资源文件，wx文件夹下存放的是微信前端页面资源文件；为了确保客户之前存放的浏览器书签能正常访问，web端的编译打包好的首页index.html文件存放在zc文件夹下。
+![](/assets/2.png)
 
 五、故障回退预案
 
