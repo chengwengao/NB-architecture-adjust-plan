@@ -22,7 +22,7 @@
 
  烟感项目外包人员选用的主要技术栈如下：
 
-\`mirth connect + vue + h5 + hbuilder + Tomcat\` 等\(下文 mirth connect 简称mirth\)
+`mirth connect + vue + h5 + hbuilder + Tomcat 等(下文 mirth connect 简称mirth)`
 
 
 
