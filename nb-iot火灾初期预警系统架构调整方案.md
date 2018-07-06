@@ -324,11 +324,7 @@ Spring Boot自带Tomcat容器，项目打成jar包后直接执行java -jar xxx.j
 
 ## 1、nginx核心配置
 
-
-
 ![](/assets/5.png)
-
-
 
 ## 2、配置说明
 
