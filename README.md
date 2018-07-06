@@ -124,7 +124,7 @@
 
  
 
- （1）nginx：
+ ### （1）nginx
 
  - 前端使用vue打包后的是静态资源，nginx对静态文件的处理能力比tomcat\(tomcat主要用于处理servlet\)快很多；
 
@@ -134,7 +134,7 @@
 
  - 经验证使用Nginx替换Tomcat对所有终端代码的侵入性较小，基本无需改动源代码，只需改变一些部署方式；
 
-（2）Spring Boot + zookeeper + Dubbo
+### （2）Spring Boot + zookeeper + Dubbo
 
 Spring Boot自带Tomcat容器，项目打成jar包后直接执行java -jar xxx.jar命令后即可运行，无需依赖其他外部容器；
 
@@ -144,15 +144,15 @@ Spring Boot自带Tomcat容器，项目打成jar包后直接执行java -jar xxx.j
 
 备注：该验证性方案均是基于Nginx（不再使用Tomcat）作为处理前端页面的容器可能存在的风险性测试得出的结论；
 
- （1）微信公众号
+ ### （1）微信公众号
 
 将wx项目文件放在nginx指定目录下，在微信公众平台配置好域名访问即可正常访问微信公众号。基于现有架构只需调整wx项目文件的发布路径即可，无需调整微信公众平台相关配置；
 
- （2\)Android、IOS APP
+ ### （2）Android、IOS APP
 
  前端页面无需做任何改变，后端接口也能通过nginx代理访问；
 
- （3）web端软件平台
+ ### （3）web端软件平台
 
  前端页面无需做任何改变，后端接口也能通过nginx代理访问，包括图片、导入导出等静态资源文件的下载、websocket推送；为了不影响客户存放在浏览器的书签地址失效，调整web端项目的存放路径即可保证原有书签正常使用；
 
@@ -160,11 +160,11 @@ Spring Boot自带Tomcat容器，项目打成jar包后直接执行java -jar xxx.j
 
 # 四、具体实施方案
 
-（1）nginx核心配置
+## 1、nginx核心配置
 
 ![](/assets/5.png)
 
-（2）配置说明：
+## 2、配置说明
 ![](/assets/1.png)
 dist文件夹是前端vue页面打包和静态资源的根目录，与nginx的可执行程序在同一目录下，所有的前端页面和静态资源文件都放在dist目录下，excel文件夹下存放的事是web端导入导出文件模板，logo文件夹下存放的是web端图片文件夹,static文件夹存放的是web端打包的静态资源文件，wx文件夹下存放的是微信前端页面资源文件；为了确保客户之前存放的浏览器书签能正常访问，web端的编译打包好的首页index.html文件存放在zc文件夹下。
 ![](/assets/2.png)
