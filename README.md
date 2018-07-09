@@ -16,6 +16,7 @@
 
 * 微信公众号
 
+
 ## 2、烟感项目原始技术栈
 
 烟感项目外包人员选用的主要技术栈如下：
@@ -23,12 +24,13 @@
 `mirth connect + vue + h5 + hbuilder + Tomcat 等(下文 mirth connect 简称mirth)`
 
 ## 3、原始技术栈解读
+
 * 原理图：
-![](/assets/11.png)
+
+  ![](/assets/11.png)
 
 说明：前端vue打包好的静态资源文件发布到Tomcat的webapps目录下，Tomcat将前端vue页面请求的后台接口转发到mirth提供的后台接口上，由于mirth通过配置参数项可以解决跨域问题，因此前端vue无需做额外的跨域配置。
 ![](/assets/6.png)
-
 
 * 接口实现
 
@@ -54,6 +56,7 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 
 * 简单的配置可以让mirth支持跨域访问；
 
+
 ## 5、原始技术栈的缺点
 
 * 免费版的mirth未提供诸如java一样发达、完善的源代码管理与追踪体系，采用mirth开发的后端代码在版本管理和过程追溯方面体验相当差；
@@ -65,6 +68,7 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 * mirth中没有提供的api只能通过调用外部jar的形式引入，jar包修改后需求重启mirth服务，如果jar包众多，这就为以后jar的管理带来很多的麻烦；
 
 * mirth中的javascript脚本虽然支持大多数js数据类型和语法，但是在调用外部jar包的传参时，对非json或者字符串格式的数据（比如对象）无法支持；
+
 
 # 二、风险
 
@@ -84,6 +88,7 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 
 * 新架构和框架可维护性高，要能有效解决mirth现有暴露的缺点；
 
+
 ## 2、选型思路：
 
 \(1\)微信公众号：
@@ -92,11 +97,13 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 
 * 后端：由mirth提供后台接口，需要替换；
 
+
 （2）Android和IOS APP
 
 * 前端：移动端前端均采用vue，编译后再通过Hbuilder打包生成安装包，暂无替换必要；
 
 * 后端：由mirth提供后台接口，需要替换；
+
 
 （3）web端软件平台
 
@@ -104,12 +111,15 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 
 * 后端：由mirth提供后台接口，需要替换；
 
+
 总结：目前负责前端交互的vue暂无需替换，由于负责后端交互的mirth与业务逻辑耦合较大，重构需要的时间成本较高，且短时间无法保证稳定性，因此\*\*现阶段暂只考虑新功能模块采用新的架构，老的代码还是保持原有的架构运行\*\*。
 
 ## 3、选型方案
 
 前端保持原有的vue，后端选用已经在农机、电动车等项目组生产环境稳定运行的nginx + Spring Boot + zookeeper + Dubbo分布式前后端解决方案。
+
 ![](/assets/21.png)
+
 说明：该图的上半部分为保留的mirth原始提供方式，前端vue打包好的静态资源文件请求的后端接口通过nginx转发到mirth后台服务器，下半部分为新的java提供方式：前端vue打包好的静态资源文件请求的后台接口通过nginx转发到Spring Boot内置的Tomcat容器，Tomcat容器再将请求转发到java程序提供的后台接口上。
 因此，部署后的情况如下：
 ![](/assets/22.png)
@@ -125,6 +135,7 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 * Nginx通过简单的配置可以解决跨域问题，对代码侵入小；
 
 * 经验证使用Nginx替换Tomcat对所有终端代码的侵入性较小，基本无需改动源代码，只需改变一些部署方式；
+
 
 ### （2）Spring Boot + zookeeper + Dubbo
 
