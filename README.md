@@ -111,6 +111,8 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 前端保持原有的vue，后端选用已经在农机、电动车等项目组生产环境稳定运行的nginx + Spring Boot + zookeeper + Dubbo分布式前后端解决方案。
 ![](/assets/21.png)
 说明：该图的上半部分为保留的mirth原始提供方式，前端vue打包好的静态资源文件请求的后端接口通过nginx转发到mirth后台服务器，下半部分为新的java提供方式：前端vue打包好的静态资源文件请求的后台接口通过Spring Boot内置的Tomcat容器转发到java程序提供的后台接口上。
+因此，部署后的情况如下：
+![](/assets/22.png)
 
 ## 4、选型依据
 
