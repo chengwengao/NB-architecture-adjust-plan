@@ -27,7 +27,7 @@
 
 * 原理图：
 
-  ![](/assets/11.png)
+ ![](/assets/11.png)
 
 说明：前端vue打包好的静态资源文件发布到Tomcat的webapps目录下，Tomcat将前端vue页面请求的后台接口转发到mirth提供的后台接口上，由于mirth通过配置参数项可以解决跨域问题，因此前端vue无需做额外的跨域配置。
 ![](/assets/6.png)
