@@ -18,7 +18,7 @@
 
 烟感项目外包人员选用的主要技术栈如下：
 
-`mirth connect + vue + h5 + hbuilder + Tomcat 等(下文 mirth connect 简称mirth)`
+`mirth connect + vue + h5 + hbuilder + Tomcat 等(下文 mirth connect 简称mirth) + mysql`
 
 ## 3、原始技术栈解读
 
@@ -34,7 +34,7 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 
 前端页面采用Tomcat作为静态资源运行容器，后台接口采用mirth作为运行容器和请求接口转发工具；
 
-## 4、原始技术栈优点
+## 4、原始技术栈优点\(主要针对mirth\)
 
 备注：后文所有技术对比将着重针对mirth，其他技术点不做重点探讨！
 
@@ -46,7 +46,7 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 
 * 简单的配置可以让mirth支持跨域访问；
 
-## 5、原始技术栈的缺点
+## 5、原始技术栈的缺点\(主要针对mirth\)
 
 * 免费版的mirth未提供诸如java一样发达、完善的源代码管理与追踪体系，采用mirth开发的后端代码在版本管理和过程追溯方面体验相当差；
 
@@ -57,6 +57,14 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 * mirth中没有提供的api只能通过调用外部jar的形式引入，jar包修改后需求重启mirth服务，如果jar包众多，这就为以后jar的管理带来很多的麻烦；
 
 * mirth中的javascript脚本虽然支持大多数js数据类型和语法，但是在调用外部jar包的传参时，对非json或者字符串格式的数据（比如对象）无法支持；
+
+## 6、原始后端架构缺点
+
+* 表结构设计不是很合理；
+
+* 部分逻辑查询sql书写太复杂；
+
+* 未考虑后面数据量增长表的可扩展性，部分表可以采取分表策略；
 
 # 二、要求
 
