@@ -112,21 +112,8 @@ Android和IOS app采用vue开发的h5页面，然后通过hbuilder打包成apk�
 
 ## 4、选型依据
 
-### （1）nginx
-
-* 前端使用vue打包后的是静态资源，nginx对静态文件的处理能力比tomcat\(tomcat主要用于处理servlet\)快很多；
-
-* Nginx的使用对项目并发能力有很大的提升；
-
-* Nginx通过简单的配置可以解决跨域问题，对代码侵入小；
-
-* 经验证使用Nginx替换Tomcat对所有终端代码的侵入性较小，基本无需改动源代码，只需改变一些部署方式；
-
-### （2）Spring Boot + zookeeper + Dubbo
-
-Spring Boot自带Tomcat容器，项目打成jar包后直接执行java -jar xxx.jar命令后即可运行，无需依赖其他外部容器；
-
-该方案的有点可参考附件中的文档：《架构演变》
+* vue渐进式前端框架，生态良好，经过了生产环境的考验；
+* java生态丰富，成熟，第三方类库众多，优点不一一赘述；
 
 ## 5、可行性验证
 
